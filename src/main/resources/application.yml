@@ -1,5 +1,5 @@
 server:
-  port: 5000
+  port: 8080
 spring:
   application:
     name: stockmanager
@@ -8,16 +8,6 @@ spring:
       name: actuator
       password: actuator
       roles: ACTUATOR_ADMIN
-#  datasource:
-#    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
-#    hikari:
-#      maximum-pool-size: 10
-#      jdbc-url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
-#      username: sa
-#      password: sa
-#    username: sa
-#    password: sa
-#    driver-class-name: org.h2.Driver
   flyway:
     locations: classpath:db/migration,classpath:db/specific/{vendor}
   jpa:
@@ -26,6 +16,10 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         temp.use_jdbc_metadata_defaults: false
         ddl-auto: validate
+  h2:
+    console:
+      enabled: true
+      path: /db-console
 
 # hikari; https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-configure-a-datasource
 app:
